@@ -1,14 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { connect, sendMsg } from "./api";
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  useEffect(() => {
+    connect()
+  
+  }, [])
+  
+
+   const send = () => {
+    console.log("hello");
+    sendMsg("hello");
+  }
 
   return (
     <>
       <div>
+        <button onClick={send}>Hit</button>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
